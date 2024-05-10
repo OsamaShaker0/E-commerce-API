@@ -28,12 +28,11 @@ app.use(fileUpload());
 
 //NOTE - routes
 app.get('/', (req, res) => {
-  res.send('welcome in this project ');
+  res.send(
+    '<h1>E-commerce-API</h1> <a href="https://documenter.getpostman.com/view/31038051/2sA3JM61oa">API DOCS</a>'
+  );
 });
-app.get('/api/v1', (req, res) => {
-  console.log(req.signedCookies);
-  res.send('welcome in this project ');
-});
+
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
