@@ -5,7 +5,7 @@ const { createTokenUser, attachCookiesToResponse ,checkPermissions} = require('.
 
 const getAllUsers = async (req, res) => {
   const users = await User.find({ role: 'user' }).select('-password');
-  if (!users) {
+  if (users.length === 0) {
     throw new CustomError.NotFoundError('there are no users ');
   }
   res.status(StatusCodes.OK).json({ users });
